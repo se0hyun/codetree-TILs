@@ -9,9 +9,12 @@ public class Main {
         int N = Integer.parseInt(firstLine[0]);
         int k = Integer.parseInt(firstLine[1]);
 
-        String[] nums = br.readLine().split(" ");
+        String[] numsS = br.readLine().split(" ");
+        int[] nums = new int[N];
+        for(int i = 0; i < N; i++){
+            nums[i] = Integer.parseInt(numsS[i]);
+        }
         Arrays.sort(nums);
-
-        System.out.print(nums[k - 1]);
+        System.out.print(nums[k-1]);
     }
 }
