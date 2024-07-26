@@ -10,9 +10,9 @@ public class Main {
     public static int[] x2 = new int[2];
     public static int[] y2 = new int[2];
 
-    public static int[][] checked = new int [MAX_R][MAX_R];
+    public static int[][] checked = new int [MAX_R + 1][MAX_R + 1];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         // 여기에 코드를 작성해주세요.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         for (int i = 0; i < 2; i++){
@@ -22,17 +22,32 @@ public class Main {
             x2[i] = Integer.parseInt(st.nextToken()) + OFFSET;
             y2[i] = Integer.parseInt(st.nextToken()) + OFFSET;
         }
+
         for (int x = x1[0]; x < x2[0]; x++)
             for (int y = y1[0]; y < y2[0]; y++){
                 checked[x][y]++;
-                area++;
             }
         for (int x = x1[1]; x < x2[1]; x++)
-            for (int y = y1[1]; y2[1]; y++){
-                if(checked[x][y] == 1){
-                    area--;
-                }
+            for (int y = y1[1]; y < y2[1]; y++){
+                if(checked[x][y] == 1)
+                    checked[x][y] = 0;
             }
+        int min_X = MAX_R, min_Y = MAX_R, max_X = 0, max_Y =0;    
+        boolean recExist = false;
+        for(int x = x1[0]; x < x2[0]; x++)
+            for(int y = y1[0]; y < y2[0]; y++)
+                if (checked[x][y] == 1){
+                    recExist = true;
+                    min_X = Math.min(min_X, x);
+                    min_Y = Math.min(min_Y, y);
+                    max_X = Math.max(max_X, x);
+                    max_Y = Math.max(max_Y, y);
+                }
+        int area;
+        if (!recExist)
+            area = 0;
+        else
+            area = (max_X - min_X + 1) * (max_Y - min_Y + 1);
         System.out.print(area);
-    }
+    }   
 }
