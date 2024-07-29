@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException{
@@ -8,13 +9,13 @@ public class Main {
 
         char[] nums = N.toCharArray();
         
+        int cnt = 0;
         for(int i = 0; i < N.length(); i++){
             // System.out.println(nums[i]);
-            if ((N.length() == 1) && (nums[i] == '1')) {
-                nums[i] = '0';
-                break;
+            if (nums[i] == '1') {
+                cnt++;
+                if (cnt == N.length()) nums[-1] = '0';
             }
-            if (nums[i] == '1') continue;
             else {
                 nums[i] = '1';
                 break;
