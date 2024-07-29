@@ -14,7 +14,10 @@ public class Main {
             // System.out.println(nums[i]);
             if (nums[i] == '1') {
                 cnt++;
-                if (cnt == N.length()) nums[-1] = '0';
+                if (cnt == N.length()) {
+                    nums[i] = '0';
+                    break;
+                }
             }
             else {
                 nums[i] = '1';
