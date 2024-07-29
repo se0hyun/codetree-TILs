@@ -7,8 +7,13 @@ public class Main {
         String N = br.readLine();
 
         char[] nums = N.toCharArray();
+        
         for(int i = 0; i < N.length(); i++){
             // System.out.println(nums[i]);
+            if ((N.length() == 1) && (nums[i] == '1')) {
+                nums[i] = '0';
+                break;
+            }
             if (nums[i] == '1') continue;
             else {
                 nums[i] = '1';
