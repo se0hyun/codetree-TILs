@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static final int MAX_T = 1000;
+    public static final int MAX_T = 1000*1000
     public static final int[] stA = new int[MAX_T];
     public static final int[] stB = new int[MAX_T];
     public static void main(String[] args) throws IOException{
