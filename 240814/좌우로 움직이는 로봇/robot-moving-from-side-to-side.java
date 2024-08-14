@@ -62,15 +62,15 @@ public class Main {
 
         int wasSame = 0, ans = 0; // 마주치면 1, 아니면 0
         for (int i = 1; i < Math.max(idxA, idxB); i++){
-            if (arrA.get(i).equals(arrB.get(i))){   // == 으로 하면 첫번째만 체크함.
-                // System.out.println(i);
-                if (wasSame == 0){
+            if (arrA.get(i).equals(arrB.get(i)) && !arrA.get(i-1).equals(arrB.get(i-1))){   // == 으로 하면 첫번째만 체크함.
+            //     System.out.println(i);
+            //     if (wasSame == 0){
                     ans++;
-                    wasSame = 1;
-                }
+            //         wasSame = 1;
+            //     }
             }
-            else
-                wasSame = 0;
+            // else
+            //     wasSame = 0;
         }
         System.out.print(ans);
     }
