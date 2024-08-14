@@ -34,23 +34,20 @@ public class Main {
             }
             idxB += t;
         }
-
-        int ans = 0;
-        boolean wasFirst = arrA[1] > arrB[1];
-        for(int k = 2; k < Math.min(idxA, idxB); k++){
-            boolean isFirst = arrA[k] > arrB[k];
-            if (isFirst != wasFirst){
-                ans++;
+        int leader = 0, ans = 0;
+        for (int i = 1; i < idxA; i++){
+            if(arrA[i] > arrB[i]){
+                if(leader == 2)
+                    ans++;
+                leader = 1;
             }
-            wasFirst = isFirst;
+            else if(arrA[i] < arrB[i]){
+                if(leader == 1)
+                    ans++;
+                leader = 2;
+            }   
         }
-        // while(arrA[k] > 0){
-        //     if(((arrA[k-1] - arrB[k-1]) * (arrA[k+1] - arrB[k+1])) < 0){    // 같이 선두를 달리다가 바뀔 수 있음
-        //         ans++;
-        //         System.out.print(k);
-        //     } 
-        //     k++;
-        // }
+
         System.out.print(ans);
     }
 }
