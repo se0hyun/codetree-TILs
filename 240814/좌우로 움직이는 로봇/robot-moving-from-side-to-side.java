@@ -57,15 +57,15 @@ public class Main {
         }
         // System.out.println(arrA.subList(12788, 12800));
         // System.out.println(arrB.subList(12788, 12800));
-        // System.out.println(arrA.size());
-        // System.out.println(arrB.size());
+        // System.out.println(arrA);
+        // System.out.println(arrB);
 
-        int wasSame = 0, ans = 0; // 마주치면 1, 아니면 0
+        int wasSame = 1, ans = 0; // 마주치면 1, 아니면 0
         for (int i = 1; i < Math.max(idxA, idxB); i++){
             // if (arrA.get(i).equals(arrB.get(i)) && !arrA.get(i-1).equals(arrB.get(i-1))){   // == 으로 하면 첫번째만 체크함.
             if(arrA.get(i).equals(arrB.get(i))){
-                // System.out.println(i);
                 if (wasSame == 0){
+                    // System.out.println(i);
                     ans++;
                     wasSame = 1;
                 }
