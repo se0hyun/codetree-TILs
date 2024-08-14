@@ -43,8 +43,8 @@ public class Main {
             m--;
         }
 
-        // System.out.println(arrA);
-        // System.out.println(arrB);
+        // System.out.println(arrA.size());
+        // System.out.println(arrB.size());
 
         if(idxA >idxB){
             for(int i = idxB; i < idxA; i++){
@@ -56,8 +56,8 @@ public class Main {
             }
         }
 
-        // System.out.println(arrA);
-        // System.out.println(arrB);
+        // System.out.println(arrA.size());
+        // System.out.println(arrB.size());
 
         int wasSame = 0, ans = 0; // 마주치면 1, 아니면 0
         for (int i = 1; i < Math.max(idxA, idxB); i++){
@@ -67,6 +67,7 @@ public class Main {
                     wasSame = 1;
                     // System.out.println(i);
                 }
+                wasSame = 1;
             }else
                 wasSame = 0;
         }
