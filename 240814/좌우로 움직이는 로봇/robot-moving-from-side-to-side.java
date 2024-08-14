@@ -42,7 +42,7 @@ public class Main {
             idxB += t;
             m--;
         }
-
+        // System.out.println(arrA.subList(375, 400));
         // System.out.println(arrA.size());
         // System.out.println(arrB.size());
 
@@ -55,20 +55,22 @@ public class Main {
                 arrA.add(arrA.get(idxA - 1));
             }
         }
-
+        // System.out.println(arrA.subList(12788, 12800));
+        // System.out.println(arrB.subList(12788, 12800));
         // System.out.println(arrA.size());
         // System.out.println(arrB.size());
 
         int wasSame = 0, ans = 0; // 마주치면 1, 아니면 0
         for (int i = 1; i < Math.max(idxA, idxB); i++){
-            if (arrA.get(i) == arrB.get(i)){
+            if (arrA.get(i).equals(arrB.get(i))){   // == 으로 하면 첫번째만 체크함.
+                // System.out.println("same");
                 if (wasSame == 0){
                     ans++;
                     wasSame = 1;
-                    // System.out.println(i);
                 }
                 wasSame = 1;
-            }else
+            }
+            else
                 wasSame = 0;
         }
         System.out.print(ans);
